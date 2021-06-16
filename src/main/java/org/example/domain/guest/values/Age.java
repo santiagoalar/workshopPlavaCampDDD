@@ -13,10 +13,10 @@ public class Age implements ValueObject<String> {
         return null;
     }
 
-    public Age(String value) throws IllegalAccessException {
+    public Age(String value){
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalAccessException("Age cannot be empty");
+            throw new IllegalArgumentException("Age cannot be empty");
         }
     }
 

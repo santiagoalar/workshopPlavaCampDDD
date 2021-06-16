@@ -8,10 +8,10 @@ public class Email implements ValueObject<String> {
 
     private final String value;
 
-    public Email(String value) throws IllegalAccessException {
+    public Email(String value){
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalAccessException("Email cannot be empty");
+            throw new IllegalArgumentException("Email cannot be empty");
         }
     }
 

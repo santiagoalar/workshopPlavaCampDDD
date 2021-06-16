@@ -13,10 +13,10 @@ public class Address implements ValueObject<String> {
         return null;
     }
 
-    public Address(String value) throws IllegalAccessException {
+    public Address(String value) {
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalAccessException("Address cannot be empty");
+            throw new IllegalArgumentException("Address cannot be empty");
         }
     }
 

@@ -8,10 +8,10 @@ public class PhoneNumber implements ValueObject<String> {
 
     private final String value;
 
-    public PhoneNumber(String value) throws IllegalAccessException {
+    public PhoneNumber(String value){
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalAccessException("Phone number cannot be empty");
+            throw new IllegalArgumentException("Phone number cannot be empty");
         }
     }
 
