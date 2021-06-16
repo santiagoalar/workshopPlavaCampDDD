@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Age implements ValueObject<String> {
+public class Address implements ValueObject<String> {
 
     private final String value;
 
@@ -13,10 +13,10 @@ public class Age implements ValueObject<String> {
         return null;
     }
 
-    public Age(String value) throws IllegalAccessException {
+    public Address(String value) throws IllegalAccessException {
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalAccessException("Age cannot be empty");
+            throw new IllegalAccessException("Address cannot be empty");
         }
     }
 
@@ -24,8 +24,8 @@ public class Age implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Age age = (Age) o;
-        return Objects.equals(value, age.value);
+        Address address = (Address) o;
+        return Objects.equals(value, address.value);
     }
 
     @Override
