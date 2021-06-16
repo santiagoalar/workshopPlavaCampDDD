@@ -1,4 +1,4 @@
-package org.example.App;
+package org.example;
 
 /**
  * Hello world!
