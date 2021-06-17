@@ -8,7 +8,7 @@ public class UpdatedName extends DomainEvent {
     public final Name name;
 
     public UpdatedName(Name name) {
-        super("sofka.account.updatedName");
+        super("plavaCamp.account.updatedName");
         this.name = name;
     }
 

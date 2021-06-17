@@ -8,7 +8,7 @@ public class AssignedBracelet extends DomainEvent {
     private final BraceletId braceletId;
 
     public AssignedBracelet(BraceletId braceletId) {
-        super("sofka.account.assignedBracelet");
+        super("plavaCamp.account.assignedBracelet");
         this.braceletId = braceletId;
     }
 
