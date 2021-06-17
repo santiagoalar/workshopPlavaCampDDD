@@ -1,22 +1,21 @@
 package org.example.domain.account.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.domain.account.values.AccountId;
 import org.example.domain.account.values.BloodType;
-import org.example.domain.account.values.PhoneNumber;
+import org.example.domain.account.values.GuestId;
 
 public class UpdatedBloodTypeGuest extends DomainEvent {
-    private final AccountId accountId;
+    private final GuestId guestId;
     private final BloodType bloodType;
 
-    public UpdatedBloodTypeGuest(AccountId accountId, BloodType bloodType) {
+    public UpdatedBloodTypeGuest(GuestId guestId, BloodType bloodType) {
         super("plavaCamp.account.updatedBloodTypeAccount");
-        this.accountId = accountId;
+        this.guestId = guestId;
         this.bloodType = bloodType;
     }
 
-    public AccountId getAccountId() {
-        return accountId;
+    public GuestId getGuestId() {
+        return guestId;
     }
 
     public BloodType getBloodType() {
