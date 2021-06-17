@@ -10,7 +10,7 @@ public class UpdatedNameGuest extends DomainEvent {
     private final Name name;
 
     public UpdatedNameGuest(GuestId guestId, Name name) {
-        super("sofka.guest.updatedNameAccount");
+        super("plavaCamp.guest.updatedNameAccount");
         this.guestId = guestId;
         this.name = name;
     }

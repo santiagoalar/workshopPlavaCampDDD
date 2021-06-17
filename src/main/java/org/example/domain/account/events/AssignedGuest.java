@@ -8,7 +8,7 @@ public class AssignedGuest extends DomainEvent {
     private final GuestId guestId;
 
     public AssignedGuest(GuestId guestId) {
-        super("sofka.account.assignedGuest");
+        super("plavaCamp.account.assignedGuest");
         this.guestId = guestId;
     }
 

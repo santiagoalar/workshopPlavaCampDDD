@@ -14,7 +14,7 @@ public class CreatedAccount extends DomainEvent {
     private final PhoneNumber phoneNumber;
 
     public CreatedAccount(Name name, Age age, Email email, PhoneNumber phoneNumber) {
-        super("sofka.account.createdAccount");
+        super("plavaCamp.account.createdAccount");
         this.name = name;
         this.age = age;
         this.email = email;

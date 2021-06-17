@@ -10,7 +10,7 @@ public class UpdatedBloodTypeGuest extends DomainEvent {
     private final BloodType bloodType;
 
     public UpdatedBloodTypeGuest(AccountId accountId, BloodType bloodType) {
-        super("sofka.account.updatedBloodTypeAccount");
+        super("plavaCamp.account.updatedBloodTypeAccount");
         this.accountId = accountId;
         this.bloodType = bloodType;
     }

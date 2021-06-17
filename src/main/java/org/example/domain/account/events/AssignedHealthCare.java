@@ -8,7 +8,7 @@ public class AssignedHealthCare extends DomainEvent {
     private final HealthCareId healthCareId;
 
     public AssignedHealthCare(HealthCareId healthCareId) {
-        super("sofka.account.assignedHealthCare");
+        super("plavaCamp.account.assignedHealthCare");
         this.healthCareId = healthCareId;
     }
 

@@ -7,7 +7,7 @@ public class UpdatedAge extends DomainEvent {
     private final Age age;
 
     public UpdatedAge(Age age) {
-        super("sofka.account.updatedAge");
+        super("plavaCamp.account.updatedAge");
         this.age = age;
     }
 
