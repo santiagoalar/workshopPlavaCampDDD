@@ -1,10 +1,12 @@
 package org.example.domain.account;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.events.*;
 import org.example.domain.account.values.*;
 import org.example.genericValues.Name;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -14,7 +16,7 @@ public class Account extends AggregateEvent<AccountId> {
     protected Age age;
     protected Email email;
     protected PhoneNumber phoneNumber;
-    protected BraceletId braceletId;
+    //protected BraceletId braceletId;
     protected Set<Guest> guests;
     protected Set<HealthCare> healthCares;
     protected Set<Bracelet> bracelets;
@@ -22,6 +24,18 @@ public class Account extends AggregateEvent<AccountId> {
     public Account(AccountId accountId, Name name, Age age, Email email, PhoneNumber phoneNumber) {
         super(accountId);
         appendChange(new CreatedAccount(name, age, email, phoneNumber));
+    }
+
+    private Account(AccountId accountId){
+        super(accountId);
+        subscribe(new UpdatedAccount(this));
+    }
+
+    //Permite obtener un agregado que ya está persistido
+    public static Account from(AccountId accountId, List<DomainEvent> events){
+        var account = new Account(accountId);
+        events.forEach(account::applyEvent);
+        return account;
     }
 
     public void updateName(Name name){
@@ -40,12 +54,12 @@ public class Account extends AggregateEvent<AccountId> {
         appendChange(new UpdatedPhoneNumber(phoneNumber)).apply();
     }
 
-    public void assignBracelet(BraceletId braceletId){
-        appendChange(new AssignedBracelet(braceletId)).apply();
+    public void addBracelet(BraceletId braceletId, Color color, Size size){
+        appendChange(new BraceletAdded(braceletId, color, size)).apply();
     }
 
-    public void assignGuest(GuestId guestId){
-        appendChange(new AssignedGuest(guestId)).apply();
+    public void addGuest(GuestId guestId, Name name, Age age, BloodType bloodType){
+        appendChange(new GuestAdded(guestId, name, age, bloodType)).apply();
     }
 
     public void updateNameGuest(GuestId guestId, Name name){
@@ -60,8 +74,11 @@ public class Account extends AggregateEvent<AccountId> {
         appendChange(new UpdatedBloodTypeGuest(guestId, bloodType)).apply();
     }
 
-    public void assignHealthCare(HealthCareId healthCareId){
-        appendChange(new AssignedHealthCare(healthCareId)).apply();
+    public void addHealthCare(HealthCareId healthCareId,
+                              Name name,
+                              Address address,
+                              OrganizationName organizationName){
+        appendChange(new HealthCareAdded(healthCareId, name, address, organizationName)).apply();
     }
 
     public Optional<Guest> getGuestById(GuestId guestId){
