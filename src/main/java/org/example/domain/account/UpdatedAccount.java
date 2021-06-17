@@ -64,6 +64,7 @@ public class UpdatedAccount extends EventChange {
                     event.getName(),
                     event.getAge(),
                     event.getBloodType()));
+            //account.guests.add(event.getGuest());
         });
 
         apply((BraceletAdded event)->{

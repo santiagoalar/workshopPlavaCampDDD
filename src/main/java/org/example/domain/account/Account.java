@@ -61,7 +61,7 @@ public class Account extends AggregateEvent<AccountId> {
     public void addGuest(GuestId guestId, Name name, Age age, BloodType bloodType){
         appendChange(new GuestAdded(guestId, name, age, bloodType)).apply();
     }
-
+    
     public void updateNameGuest(GuestId guestId, Name name){
         appendChange(new UpdatedNameGuest(guestId, name)).apply();
     }

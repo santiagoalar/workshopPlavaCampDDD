@@ -8,9 +8,9 @@ import org.example.domain.account.commands.CreateAccount;
 
 public class CreateAccountUseCase extends UseCase<RequestCommand<CreateAccount>, ResponseEvents> {
     @Override
-    public void executeUseCase(RequestCommand<CreateAccount> createGuestRequestCommand) {
+    public void executeUseCase(RequestCommand<CreateAccount> createAccountRequestCommand) {
 
-        var command = createGuestRequestCommand.getCommand();
+        var command = createAccountRequestCommand.getCommand();
         var account = new Account(command.getAccountId(), command.getName(),
                 command.getAge(), command.getEmail(), command.getPhoneNumber());
 
