@@ -1,31 +1,31 @@
-package org.example.domain.guest.values;
+package org.example.domain.account.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Email implements ValueObject<String> {
+public class BloodType implements ValueObject<String> {
 
     private final String value;
 
-    public Email(String value){
+    public BloodType(String value) {
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalArgumentException("Email cannot be empty");
+            throw new IllegalArgumentException("Blood type cannot be empty");
         }
     }
 
     @Override
     public String value() {
-        return null;
+        return value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Email email = (Email) o;
-        return Objects.equals(value, email.value);
+        BloodType bloodType = (BloodType) o;
+        return Objects.equals(value, bloodType.value);
     }
 
     @Override

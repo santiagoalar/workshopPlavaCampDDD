@@ -1,10 +1,10 @@
-package org.example.genericValues;
+package org.example.domain.account.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Name implements ValueObject<String> {
+public class Age implements ValueObject<String> {
 
     private final String value;
 
@@ -12,10 +12,10 @@ public class Name implements ValueObject<String> {
         return value;
     }
 
-    public Name(String value){
+    public Age(String value) {
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalArgumentException("Name cannot be empty");
+            throw new IllegalArgumentException("Age cannot be empty");
         }
     }
 
@@ -23,8 +23,8 @@ public class Name implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Name name = (Name) o;
-        return Objects.equals(value, name.value);
+        Age age = (Age) o;
+        return Objects.equals(value, age.value);
     }
 
     @Override

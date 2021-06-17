@@ -1,4 +1,4 @@
-package org.example.domain.guest.values;
+package org.example.domain.account.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
@@ -17,7 +17,7 @@ public class PhoneNumber implements ValueObject<String> {
 
     @Override
     public String value() {
-        return null;
+        return value;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.example.domain.guest.events;
+package org.example.domain.account.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.genericValues.Name;
@@ -8,7 +8,7 @@ public class UpdatedName extends DomainEvent {
     public final Name name;
 
     public UpdatedName(Name name) {
-        super("sofka.guest.updatedName");
+        super("sofka.account.updatedName");
         this.name = name;
     }
 

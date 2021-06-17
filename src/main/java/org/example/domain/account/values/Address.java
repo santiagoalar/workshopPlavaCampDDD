@@ -1,22 +1,22 @@
-package org.example.domain.guest.values;
+package org.example.domain.account.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Age implements ValueObject<String> {
+public class Address implements ValueObject<String> {
 
     private final String value;
 
     @Override
     public String value() {
-        return null;
+        return value;
     }
 
-    public Age(String value){
+    public Address(String value) {
         this.value = Objects.requireNonNull(value);
         if(value.isBlank()){
-            throw new IllegalArgumentException("Age cannot be empty");
+            throw new IllegalArgumentException("Address cannot be empty");
         }
     }
 
@@ -24,8 +24,8 @@ public class Age implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Age age = (Age) o;
-        return Objects.equals(value, age.value);
+        Address address = (Address) o;
+        return Objects.equals(value, address.value);
     }
 
     @Override

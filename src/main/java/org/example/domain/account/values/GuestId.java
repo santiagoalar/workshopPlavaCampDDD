@@ -1,4 +1,4 @@
-package org.example.domain.guest.values;
+package org.example.domain.account.values;
 
 import co.com.sofka.domain.generic.Identity;
 

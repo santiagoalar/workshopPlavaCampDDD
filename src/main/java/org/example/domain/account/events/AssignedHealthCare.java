@@ -1,14 +1,14 @@
-package org.example.domain.guest.events;
+package org.example.domain.account.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.domain.guest.values.HealthCareId;
+import org.example.domain.account.values.HealthCareId;
 
 public class AssignedHealthCare extends DomainEvent {
 
     private final HealthCareId healthCareId;
 
     public AssignedHealthCare(HealthCareId healthCareId) {
-        super("sofka.guest.assignedHealthCare");
+        super("sofka.account.assignedHealthCare");
         this.healthCareId = healthCareId;
     }
 

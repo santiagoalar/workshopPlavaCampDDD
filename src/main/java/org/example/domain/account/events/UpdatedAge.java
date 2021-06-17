@@ -1,13 +1,13 @@
-package org.example.domain.guest.events;
+package org.example.domain.account.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.domain.guest.values.Age;
+import org.example.domain.account.values.Age;
 
 public class UpdatedAge extends DomainEvent {
     private final Age age;
 
     public UpdatedAge(Age age) {
-        super("sofka.guest.updatedAge");
+        super("sofka.account.updatedAge");
         this.age = age;
     }
 
