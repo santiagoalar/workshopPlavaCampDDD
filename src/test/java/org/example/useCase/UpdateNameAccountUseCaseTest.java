@@ -15,6 +15,7 @@ import org.example.domain.account.values.PhoneNumber;
 import org.example.genericValues.Name;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -26,7 +27,7 @@ import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
-class UpdateNameAccountUseCaseTest extends UseCase<RequestCommand<UpdateName>, ResponseEvents> {
+class UpdateNameAccountUseCaseTest {
 
     private UpdateNameAccountUseCase updateNameAccountUseCase;
 
@@ -38,8 +39,8 @@ class UpdateNameAccountUseCaseTest extends UseCase<RequestCommand<UpdateName>, R
     @Mock
     private DomainEventRepository repository;
 
-    @Override
-    public void executeUseCase(RequestCommand<UpdateName> updateNameRequestCommand) {
+    @Test
+    void createGoodPath(){
 
         //Arrange
         var name = new Name("Carlos Francisco");
