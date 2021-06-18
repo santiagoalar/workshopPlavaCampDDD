@@ -33,6 +33,14 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
         return entryCard;
     }
 
+    public void updateArrivalDate(EntryCardId entryCardId, ArrivalDate arrivalDate){
+        appendChange(new UpdatedArrivalDate(entryCardId, arrivalDate));
+    }
+
+    public void updateDeparture(EntryCardId entryCardId, DepartureDate departureDate){
+        appendChange(new UpdatedDepartureDate(entryCardId, departureDate));
+    }
+
     public void assignAccount(EntryCardId entryCardId, AccountId accountId){
         appendChange(new AssignedAccount(entryCardId, accountId));
     }

@@ -10,6 +10,14 @@ public class OnChangeEntryCard extends EventChange {
             entryCard.accountId = event.getAccountId();
         });
 
+        apply((UpdatedArrivalDate event)->{
+            entryCard.arrivalDate = event.getArrivalDate();
+        });
+
+        apply((UpdatedDepartureDate event)->{
+            entryCard.departureDate = event.getDepartureDate();
+        });
+
         apply(((AssignedCottage event)->{
             entryCard.cottageId = event.getCottageId();
         }));
