@@ -41,6 +41,10 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
         appendChange(new AssignedCottage(entryCardId, cottageId));
     }
 
+    public void updateQuantityBedsCottage(EntryCardId entryCardId, CottageId cottageId, QuantityBeds quantityBeds){
+        appendChange(new UpdatedQuantityBedsCottage(entryCardId, cottageId, quantityBeds));
+    }
+
     public void assignMealPlan(EntryCardId entryCardId, MealPlanId mealPlanId, IsVegetarian isVegetarian, QuantityPeople quantityPeople){
         appendChange(new AssignedMealPlan(entryCardId, mealPlanId, isVegetarian, quantityPeople));
     }

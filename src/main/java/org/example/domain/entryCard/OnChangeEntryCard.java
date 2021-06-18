@@ -14,18 +14,23 @@ public class OnChangeEntryCard extends EventChange {
             entryCard.cottageId = event.getCottageId();
         }));
 
-        apply((UpdatedQuantityPeopleMealPlan event)->{
-            entryCard.mealPlanId = event.getMealPlanId();
-
-            //Algo mas
+        apply((UpdatedQuantityBedsCottage event)->{
+            entryCard.cottageId = event.getCottageId();
         });
 
         apply((AssignedMealPlan event)->{
             entryCard.mealPlanId = event.getMealPlanId();
         });
 
+        apply((UpdatedQuantityPeopleMealPlan event)->{
+            entryCard.mealPlanId = event.getMealPlanId();
+
+            //Algo mas
+        });
+
         apply((AssignedAccount event)->{
             entryCard.accountId = event.getAccountId();
         });
+
     }
 }
