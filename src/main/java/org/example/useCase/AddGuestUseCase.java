@@ -7,14 +7,16 @@ import org.example.domain.account.Account;
 import org.example.domain.account.commands.AddGuest;
 
 public class AddGuestUseCase extends UseCase<RequestCommand<AddGuest>, ResponseEvents> {
+
     @Override
     public void executeUseCase(RequestCommand<AddGuest> addGuestRequestCommand) {
 
         var command = addGuestRequestCommand.getCommand();
         var account = Account.from(command.getAccountId(), retrieveEvents(command.getGuestId().value()));
 
-        account.addGuest(command.getGuestId(), command.getName(), command.getAge(), command.getBloodType());
 
+
+        account.addGuest(command.getAccountId(), command.getGuestId(), command.getName(), command.getAge(), command.getBloodType());
         emit().onResponse(new ResponseEvents((account.getUncommittedChanges())));
 
     }
