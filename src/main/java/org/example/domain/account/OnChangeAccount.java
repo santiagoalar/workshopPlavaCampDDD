@@ -49,10 +49,6 @@ public class OnChangeAccount extends EventChange {
         });
 
         apply((GuestAdded event)->{
-            var guestsSize = account.guests.size();
-            if(guestsSize>8){
-                throw new IllegalArgumentException("Guests cannot be grater then 8 for one account");
-            }
             account.guests.add(new Guest(event.getGuestId(),
                     event.getName(),
                     event.getAge(),
