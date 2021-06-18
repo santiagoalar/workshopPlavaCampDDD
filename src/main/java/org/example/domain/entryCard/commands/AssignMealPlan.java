@@ -1,20 +1,19 @@
-package org.example.domain.entryCard.events;
+package org.example.domain.entryCard.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import org.example.domain.entryCard.values.EntryCardId;
 import org.example.domain.entryCard.values.IsVegetarian;
 import org.example.domain.entryCard.values.MealPlanId;
 import org.example.domain.entryCard.values.QuantityPeople;
 
-public class AssignedMealPlan extends DomainEvent {
+public class AssignMealPlan implements Command {
 
     private final EntryCardId entryCardId;
     private final MealPlanId mealPlanId;
     private final IsVegetarian isVegetarian;
     private final QuantityPeople quantityPeople;
 
-    public AssignedMealPlan(EntryCardId entryCardId, MealPlanId mealPlanId, IsVegetarian isVegetarian, QuantityPeople quantityPeople) {
-        super("plavaCamp.entryCard.assignedMealPlan");
+    public AssignMealPlan(EntryCardId entryCardId, MealPlanId mealPlanId, IsVegetarian isVegetarian, QuantityPeople quantityPeople) {
         this.entryCardId = entryCardId;
         this.mealPlanId = mealPlanId;
         this.isVegetarian = isVegetarian;
