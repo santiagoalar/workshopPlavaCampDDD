@@ -7,6 +7,7 @@ import org.example.domain.entryCard.events.*;
 import org.example.domain.entryCard.values.*;
 
 import java.util.List;
+import java.util.Set;
 
 public class EntryCard extends AggregateEvent<EntryCardId> {
 
@@ -15,7 +16,7 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
     protected AccountId accountId;
     protected MealPlanId mealPlanId;
     protected CottageId cottageId;
-
+    protected Set<ParkingSpotId> parkingSpotIds;
 
     public EntryCard(EntryCardId entityId, AccountId accountId) {
         super(entityId);
@@ -57,8 +58,35 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
         appendChange(new AssignedMealPlan(entryCardId, mealPlanId, isVegetarian, quantityPeople));
     }
 
-
     public void updateQuantityPeopleMealPlan(EntryCardId entryCardId, MealPlanId mealPlanId, QuantityPeople quantityPeople){
         appendChange(new UpdatedQuantityPeopleMealPlan(entryCardId, mealPlanId, quantityPeople));
+    }
+
+    public void assignParkingSpot(EntryCardId entryCardId, ParkingSpotId parkingSpotId){
+        appendChange(new AssignedParkingSpot(entryCardId, parkingSpotId));
+    }
+
+    public ArrivalDate getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public DepartureDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public AccountId getAccountId() {
+        return accountId;
+    }
+
+    public MealPlanId getMealPlanId() {
+        return mealPlanId;
+    }
+
+    public CottageId getCottageId() {
+        return cottageId;
+    }
+
+    public Set<ParkingSpotId> getParkingSpotIds() {
+        return parkingSpotIds;
     }
 }
