@@ -27,5 +27,5 @@
 
 
 ## Use cases triggered by events
--NotifyEmailMessageUseCase.java
--NotifyTextMessageUseCase.java
+- NotifyEmailMessageUseCase.java
+- NotifyTextMessageUseCase.java
