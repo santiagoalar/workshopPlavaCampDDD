@@ -1,10 +1,7 @@
 package org.example.domain.entryCard;
 
 import co.com.sofka.domain.generic.EventChange;
-import org.example.domain.entryCard.events.AssignedCottage;
-import org.example.domain.entryCard.events.AssignedMealPlan;
-import org.example.domain.entryCard.events.CreatedEntryCard;
-import org.example.domain.entryCard.events.UpdatedQuantityPeopleMealPlan;
+import org.example.domain.entryCard.events.*;
 
 public class OnChangeEntryCard extends EventChange {
 
@@ -25,6 +22,10 @@ public class OnChangeEntryCard extends EventChange {
 
         apply((AssignedMealPlan event)->{
             entryCard.mealPlanId = event.getMealPlanId();
+        });
+
+        apply((AssignedAccount event)->{
+            entryCard.accountId = event.getAccountId();
         });
     }
 }

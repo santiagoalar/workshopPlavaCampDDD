@@ -3,10 +3,7 @@ package org.example.domain.entryCard;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.values.AccountId;
-import org.example.domain.entryCard.events.AssignedCottage;
-import org.example.domain.entryCard.events.AssignedMealPlan;
-import org.example.domain.entryCard.events.CreatedEntryCard;
-import org.example.domain.entryCard.events.UpdatedQuantityPeopleMealPlan;
+import org.example.domain.entryCard.events.*;
 import org.example.domain.entryCard.values.*;
 
 import java.util.List;
@@ -36,6 +33,10 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
         return entryCard;
     }
 
+    public void assignAccount(EntryCardId entryCardId, AccountId accountId){
+        appendChange(new AssignedAccount(entryCardId, accountId));
+    }
+
     public void assignCottage(EntryCardId entryCardId, CottageId cottageId){
         appendChange(new AssignedCottage(entryCardId, cottageId));
     }
@@ -43,6 +44,7 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
     public void assignMealPlan(EntryCardId entryCardId, MealPlanId mealPlanId, IsVegetarian isVegetarian, QuantityPeople quantityPeople){
         appendChange(new AssignedMealPlan(entryCardId, mealPlanId, isVegetarian, quantityPeople));
     }
+
 
     public void updateQuantityPeopleMealPlan(EntryCardId entryCardId, MealPlanId mealPlanId, QuantityPeople quantityPeople){
         appendChange(new UpdatedQuantityPeopleMealPlan(entryCardId, mealPlanId, quantityPeople));
