@@ -4,14 +4,14 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class QuantityRooms implements ValueObject<String> {
+public class DepartureDate implements ValueObject<String> {
 
     private final String value;
 
-    public QuantityRooms(String value) {
+    public DepartureDate(String value) {
         this.value = Objects.requireNonNull(value);
         if (value.isBlank()){
-            throw new IllegalArgumentException("Quantity of rooms cannot be empty");
+            throw new IllegalArgumentException("Departure cannot be empty");
         }
     }
 
@@ -24,7 +24,7 @@ public class QuantityRooms implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        QuantityRooms that = (QuantityRooms) o;
+        DepartureDate that = (DepartureDate) o;
         return Objects.equals(value, that.value);
     }
 
