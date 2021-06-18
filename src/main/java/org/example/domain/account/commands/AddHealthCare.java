@@ -1,23 +1,20 @@
 package org.example.domain.account.commands;
 
 import co.com.sofka.domain.generic.Command;
-import org.example.domain.account.values.AccountId;
-import org.example.domain.account.values.Age;
-import org.example.domain.account.values.BloodType;
-import org.example.domain.account.values.GuestId;
+import org.example.domain.account.values.*;
 import org.example.genericValues.Name;
 
-public class AddGuest implements Command {
+public class AddHealthCare implements Command {
 
     private final AccountId accountId;
-    private final GuestId guestId;
+    private final HealthCareId healthCareId;
     private final Name name;
     private final Age age;
     private final BloodType bloodType;
 
-    public AddGuest(AccountId accountId, GuestId guestId, Name name, Age age, BloodType bloodType) {
+    public AddHealthCare(AccountId accountId, HealthCareId healthCareId, Name name, Age age, BloodType bloodType) {
         this.accountId = accountId;
-        this.guestId = guestId;
+        this.healthCareId = healthCareId;
         this.name = name;
         this.age = age;
         this.bloodType = bloodType;
@@ -27,8 +24,8 @@ public class AddGuest implements Command {
         return accountId;
     }
 
-    public GuestId getGuestId() {
-        return guestId;
+    public HealthCareId getHealthCareId() {
+        return healthCareId;
     }
 
     public Name getName() {
