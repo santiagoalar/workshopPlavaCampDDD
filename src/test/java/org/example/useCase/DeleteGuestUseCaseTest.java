@@ -99,17 +99,5 @@ class DeleteGuestUseCaseTest {
                 GuestId.of("G-36599"),
                 new Name("Mariana"), new Age("23"), new BloodType("0+"))
         );
-        /*var factory = ProductosFactory.builder();
-        factory.nuevoProducto(ProductoId.of("P-001"), new Precio(12000.0), new Cantidad(2));
-        factory.nuevoProducto(ProductoId.of("P-002"), new Precio(13000.0), new Cantidad(1));
-
-        return List.of(
-                new FacturaCreada(facturaId),
-                new TiendaAsignada(TiendaId.of("T-aaa"), new Descuento(50.0)),
-                new ClienteAsignado(Cedula.of("1234"),new Nombre("LEO"), new Direccion("siempre viva")),
-                new ProductosAsignados(facturaId, factory)
-        );*/
     }
-
-
 }

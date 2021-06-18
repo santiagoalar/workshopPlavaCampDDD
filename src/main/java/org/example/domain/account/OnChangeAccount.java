@@ -1,11 +1,7 @@
 package org.example.domain.account;
 
 import co.com.sofka.domain.generic.EventChange;
-import org.example.domain.account.commands.DeleteGuest;
 import org.example.domain.account.events.*;
-import org.example.domain.account.values.Bracelet;
-import org.example.domain.account.values.Guest;
-import org.example.domain.account.values.HealthCare;
 
 import java.util.HashSet;
 
@@ -15,10 +11,6 @@ public class OnChangeAccount extends EventChange {
         //Here add all domain rules
 
         apply((CreatedAccount event)->{
-            //account.name = event.getName();
-            //account.age = event.getAge();
-            //account.email = event.getEmail();
-            //account.phoneNumber = event.getPhoneNumber();
             account.guests = new HashSet<>();
             account.bracelets = new HashSet<>();
             account.healthCares = new HashSet<>();

@@ -11,8 +11,8 @@ public class AssignCottageUseCase extends UseCase<RequestCommand<AssignCottage>,
     public void executeUseCase(RequestCommand<AssignCottage> assignCottageRequestCommand) {
         var command = assignCottageRequestCommand.getCommand();
         var entryCard = EntryCard.from(command.getEntryCardId(), retrieveEvents(command.getEntryCardId().value()));
-
         entryCard.assignCottage(command.getEntryCardId(), command.getCottageId());
+
         emit().onResponse(new ResponseEvents(entryCard.getUncommittedChanges()));
     }
 }

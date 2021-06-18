@@ -2,7 +2,6 @@ package org.example.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import org.example.domain.account.events.CreatedAccount;
 import org.example.domain.account.values.AccountId;
 import org.example.domain.entryCard.commands.CreateEntryCard;
 import org.example.domain.entryCard.events.CreatedEntryCard;
@@ -10,8 +9,6 @@ import org.example.domain.entryCard.values.EntryCardId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CreateEntryCardUseCaseTest {
 

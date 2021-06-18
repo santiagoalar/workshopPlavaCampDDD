@@ -1,10 +1,8 @@
 package org.example.useCase;
 
-import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.business.support.ResponseEvents;
 import org.example.domain.account.commands.UpdateName;
 import org.example.domain.account.events.CreatedAccount;
 import org.example.domain.account.events.UpdatedName;

@@ -9,12 +9,10 @@ import org.example.domain.entryCard.commands.UpdateQuantityPeopleMealPlan;
 public class UpdateQuantityPeopleMealPlanUseCase extends UseCase<RequestCommand<UpdateQuantityPeopleMealPlan>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<UpdateQuantityPeopleMealPlan> updateQuantityPeopleMealPlanRequestCommand) {
-
         var command = updateQuantityPeopleMealPlanRequestCommand.getCommand();
         var entryCard = EntryCard.from(command.getEntryCardId(), retrieveEvents(command.getEntryCardId().value()));
-
         entryCard.updateQuantityPeopleMealPlan(command.getEntryCardId(), command.getMealPlanId(), command.getQuantityPeople());
-        emit().onResponse(new ResponseEvents(entryCard.getUncommittedChanges()));
 
+        emit().onResponse(new ResponseEvents(entryCard.getUncommittedChanges()));
     }
 }

@@ -1,6 +1,9 @@
-package org.example.domain.account.values;
+package org.example.domain.account;
 
 import co.com.sofka.domain.generic.Entity;
+import org.example.domain.account.values.Age;
+import org.example.domain.account.values.BloodType;
+import org.example.domain.account.values.GuestId;
 import org.example.genericValues.Name;
 
 public class Guest extends Entity<GuestId> {

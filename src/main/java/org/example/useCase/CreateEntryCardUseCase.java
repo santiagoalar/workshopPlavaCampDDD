@@ -10,7 +10,6 @@ public class CreateEntryCardUseCase extends UseCase<RequestCommand<CreateEntryCa
     @Override
     public void executeUseCase(RequestCommand<CreateEntryCard> createEntryCardRequestCommand) {
         var command = createEntryCardRequestCommand.getCommand();
-
         EntryCard entryCard = new EntryCard(command.getEntryCardId(), command.getAccountId());
 
         emit().onResponse(new ResponseEvents(entryCard.getUncommittedChanges()));

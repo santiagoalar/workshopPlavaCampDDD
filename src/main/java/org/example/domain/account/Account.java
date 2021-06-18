@@ -3,7 +3,6 @@ package org.example.domain.account;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.events.*;
-import org.example.domain.account.factory.GuestFactory;
 import org.example.domain.account.values.*;
 import org.example.genericValues.Name;
 
@@ -17,12 +16,10 @@ public class Account extends AggregateEvent<AccountId> {
     protected Age age;
     protected Email email;
     protected PhoneNumber phoneNumber;
-    //protected BraceletId braceletId;
     protected Set<Guest> guests;
     protected Set<HealthCare> healthCares;
     protected Set<Bracelet> bracelets;
 
-    //public Account(AccountId accountId) {
     public Account(AccountId accountId, Name name, Age age, Email email, PhoneNumber phoneNumber) {
         super(accountId);
         this.name = name;
@@ -66,9 +63,7 @@ public class Account extends AggregateEvent<AccountId> {
     }
 
     public void addGuest(AccountId accountId, GuestId guestId, Name name, Age age, BloodType bloodType){
-    //public void addGuest(AccountId accountId, GuestFactory guestFactory){
         appendChange(new GuestAdded(accountId, guestId, name, age, bloodType));
-        //appendChange(new GuestsAdded(accountId, guestFactory));
     }
 
     public void updateNameGuest(GuestId guestId, Name name){

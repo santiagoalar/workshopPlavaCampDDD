@@ -10,9 +10,7 @@ public class DeleteGuestUseCase extends UseCase<RequestCommand<DeleteGuest>, Res
 
     @Override
     public void executeUseCase(RequestCommand<DeleteGuest> deleteGuestRequestCommand) {
-
         var command = deleteGuestRequestCommand.getCommand();
-
         var account = Account.from(command.getAccountId(), retrieveEvents());
         account.deleteGuest(command.getAccountId(), command.getGuestId());
 

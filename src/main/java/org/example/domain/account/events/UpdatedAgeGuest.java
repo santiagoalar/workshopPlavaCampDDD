@@ -1,7 +1,6 @@
 package org.example.domain.account.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import org.example.domain.account.values.Address;
 import org.example.domain.account.values.Age;
 import org.example.domain.account.values.GuestId;
 

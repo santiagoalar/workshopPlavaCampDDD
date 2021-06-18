@@ -11,8 +11,8 @@ public class UpdateQuantityBedsCottageUseCase extends UseCase<RequestCommand<Upd
     public void executeUseCase(RequestCommand<UpdateQuantityBedsCottage> updateQuantityBedsCottageRequestCommand) {
         var command = updateQuantityBedsCottageRequestCommand.getCommand();
         var entryCard = EntryCard.from(command.getEntryCardId(), retrieveEvents(command.getEntryCardId().value()));
-
         entryCard.updateQuantityBedsCottage(command.getEntryCardId(), command.getCottageId(), command.getQuantityBeds());
+
         emit().onResponse(new ResponseEvents(entryCard.getUncommittedChanges()));
     }
 }

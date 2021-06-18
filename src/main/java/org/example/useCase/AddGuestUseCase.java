@@ -10,14 +10,10 @@ public class AddGuestUseCase extends UseCase<RequestCommand<AddGuest>, ResponseE
 
     @Override
     public void executeUseCase(RequestCommand<AddGuest> addGuestRequestCommand) {
-
         var command = addGuestRequestCommand.getCommand();
         var account = Account.from(command.getAccountId(), retrieveEvents(command.getGuestId().value()));
-
-
-
         account.addGuest(command.getAccountId(), command.getGuestId(), command.getName(), command.getAge(), command.getBloodType());
-        emit().onResponse(new ResponseEvents((account.getUncommittedChanges())));
 
+        emit().onResponse(new ResponseEvents((account.getUncommittedChanges())));
     }
 }

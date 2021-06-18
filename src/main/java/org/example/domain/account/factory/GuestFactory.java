@@ -1,5 +1,6 @@
 package org.example.domain.account.factory;
 
+import org.example.domain.account.Guest;
 import org.example.domain.account.values.*;
 import org.example.genericValues.Name;
 

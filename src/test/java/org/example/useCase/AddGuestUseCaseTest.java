@@ -3,7 +3,6 @@ package org.example.useCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.commands.AddGuest;
 import org.example.domain.account.events.CreatedAccount;
 import org.example.domain.account.events.GuestAdded;
@@ -16,7 +15,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -66,32 +64,9 @@ class AddGuestUseCaseTest {
         //Assert
         GuestAdded guestAdded = (GuestAdded) events.get(0);
 
-        //Assertions.assertEquals(1, guestAdded.getGuestFactory().guests().size());
         Assertions.assertEquals("123", guestAdded.getGuestId().value());
         Assertions.assertEquals("Tonio", guestAdded.getName().value());
         Assertions.assertEquals("23", guestAdded.getAge().value());
         Assertions.assertEquals("0+", guestAdded.getBloodType().value());
     }
-
-    /*@Test
-    void createBadPath(){
-        var command = new AddGuest(AccountId.of("F-5985"),
-                GuestId.of("123"),
-                new Name("Tonio"),
-                new Age("23"),
-                new BloodType("0+"));
-
-        when(repository.getEventsBy(any())).thenReturn(eventsFullGuest());
-    }
-
-    private List<DomainEvent> eventsFullGuest(){
-        return (List<DomainEvent>) List.of(new CreatedAccount(AccountId.of("2626"),
-                        new Name("juan"), new Age("32"),
-                        new Email("31252@mail.com"), new PhoneNumber("32251")),
-                new AddGuest(AccountId.of("2626"), GuestId.of("a"), new Name("Juan"), new Age("21"), new BloodType("0-")),
-                new AddGuest(AccountId.of("1"), GuestId.of("a"), new Name("Juan"), new Age("21"), new BloodType("0-")),
-                new AddGuest(AccountId.of("1"), GuestId.of("a"), new Name("Juan"), new Age("21"), new BloodType("0-"))
-                );
-    }*/
-
 }

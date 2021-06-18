@@ -1,6 +1,9 @@
-package org.example.domain.account.values;
+package org.example.domain.account;
 
 import co.com.sofka.domain.generic.Entity;
+import org.example.domain.account.values.BraceletId;
+import org.example.domain.account.values.Color;
+import org.example.domain.account.values.Size;
 
 public class Bracelet extends Entity<BraceletId> {
 

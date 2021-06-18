@@ -9,7 +9,6 @@ import org.example.domain.account.commands.UpdateName;
 public class UpdateNameAccountUseCase extends UseCase<RequestCommand<UpdateName>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<UpdateName> updateNameRequestCommand) {
-
         var command = updateNameRequestCommand.getCommand();
         var account = Account.from(command.getAccountId(), retrieveEvents());
         account.updateName(command.getName());

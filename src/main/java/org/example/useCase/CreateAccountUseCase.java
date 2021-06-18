@@ -9,7 +9,6 @@ import org.example.domain.account.commands.CreateAccount;
 public class CreateAccountUseCase extends UseCase<RequestCommand<CreateAccount>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<CreateAccount> createAccountRequestCommand) {
-
         var command = createAccountRequestCommand.getCommand();
         var account = new Account(command.getAccountId(), command.getName(),
                 command.getAge(), command.getEmail(), command.getPhoneNumber());
@@ -22,6 +21,5 @@ public class CreateAccountUseCase extends UseCase<RequestCommand<CreateAccount>,
         };*/
 
         emit().onResponse(new ResponseEvents(account.getUncommittedChanges()));
-
     }
 }

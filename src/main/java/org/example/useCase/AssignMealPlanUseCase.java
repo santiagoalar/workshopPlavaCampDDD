@@ -9,7 +9,6 @@ import org.example.domain.entryCard.commands.AssignMealPlan;
 public class AssignMealPlanUseCase extends UseCase<RequestCommand<AssignMealPlan>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<AssignMealPlan> assignMealPlanRequestCommand) {
-
         var command = assignMealPlanRequestCommand.getCommand();
         var entryCard = EntryCard.from(command.getEntryCardId(), retrieveEvents(command.getEntryCardId().value()));
         entryCard.assignMealPlan(command.getEntryCardId(), command.getMealPlanId(), command.getIsVegetarian(), command.getQuantityPeople());

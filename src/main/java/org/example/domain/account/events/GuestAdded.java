@@ -15,7 +15,6 @@ public class GuestAdded extends DomainEvent {
     private final Age age;
     private final BloodType bloodType;
 
-
     public GuestAdded(AccountId accountId, GuestId guestId, Name name, Age age, BloodType bloodType) {
         super("plavaCamp.account.assignedGuest");
         this.accountId = accountId;

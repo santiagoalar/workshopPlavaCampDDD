@@ -5,7 +5,6 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.values.AccountId;
-import org.example.domain.entryCard.EntryCard;
 import org.example.domain.entryCard.commands.AssignAccount;
 import org.example.domain.entryCard.events.AssignedAccount;
 import org.example.domain.entryCard.events.CreatedEntryCard;
@@ -17,7 +16,6 @@ import org.mockito.Mock;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
