@@ -1,6 +1,7 @@
 package org.example.domain.account;
 
 import co.com.sofka.domain.generic.EventChange;
+import org.example.domain.account.commands.DeleteGuest;
 import org.example.domain.account.events.*;
 import org.example.domain.account.values.Bracelet;
 import org.example.domain.account.values.Guest;
@@ -8,16 +9,16 @@ import org.example.domain.account.values.HealthCare;
 
 import java.util.HashSet;
 
-public class UpdatedAccount extends EventChange {
-    public UpdatedAccount(Account account) {
+public class OnChangeAccount extends EventChange {
+    public OnChangeAccount(Account account) {
 
         //Here add all domain rules
 
         apply((CreatedAccount event)->{
-            account.name = event.getName();
-            account.age = event.getAge();
-            account.email = event.getEmail();
-            account.phoneNumber = event.getPhoneNumber();
+            //account.name = event.getName();
+            //account.age = event.getAge();
+            //account.email = event.getEmail();
+            //account.phoneNumber = event.getPhoneNumber();
             account.guests = new HashSet<>();
             account.bracelets = new HashSet<>();
             account.healthCares = new HashSet<>();
@@ -64,7 +65,10 @@ public class UpdatedAccount extends EventChange {
                     event.getName(),
                     event.getAge(),
                     event.getBloodType()));
-            //account.guests.add(event.getGuest());
+        });
+
+        apply((GuestDeleted event)->{
+            account.guests.remove(event.getAccountId());
         });
 
         apply((BraceletAdded event)->{

@@ -3,6 +3,7 @@ package org.example.domain.account;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.events.*;
+import org.example.domain.account.factory.GuestFactory;
 import org.example.domain.account.values.*;
 import org.example.genericValues.Name;
 
@@ -21,14 +22,20 @@ public class Account extends AggregateEvent<AccountId> {
     protected Set<HealthCare> healthCares;
     protected Set<Bracelet> bracelets;
 
+    //public Account(AccountId accountId) {
     public Account(AccountId accountId, Name name, Age age, Email email, PhoneNumber phoneNumber) {
         super(accountId);
-        appendChange(new CreatedAccount(name, age, email, phoneNumber));
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        appendChange(new CreatedAccount(accountId, name, age, email, phoneNumber));
+        //appendChange(new CreatedAccount(accountId));
     }
 
     private Account(AccountId accountId){
         super(accountId);
-        subscribe(new UpdatedAccount(this));
+        subscribe(new OnChangeAccount(this));
     }
 
     //Permite obtener un agregado que ya está persistido
@@ -58,8 +65,10 @@ public class Account extends AggregateEvent<AccountId> {
         appendChange(new BraceletAdded(braceletId, color, size)).apply();
     }
 
-    public void addGuest(GuestId guestId, Name name, Age age, BloodType bloodType){
-        appendChange(new GuestAdded(guestId, name, age, bloodType)).apply();
+    public void addGuest(AccountId accountId, GuestId guestId, Name name, Age age, BloodType bloodType){
+    //public void addGuest(AccountId accountId, GuestFactory guestFactory){
+        appendChange(new GuestAdded(accountId, guestId, name, age, bloodType));
+        //appendChange(new GuestsAdded(accountId, guestFactory));
     }
 
     public void updateNameGuest(GuestId guestId, Name name){
@@ -72,6 +81,10 @@ public class Account extends AggregateEvent<AccountId> {
 
     public void updateBloodTypeGuest(GuestId guestId, BloodType bloodType){
         appendChange(new UpdatedBloodTypeGuest(guestId, bloodType)).apply();
+    }
+
+    public void deleteGuest(AccountId accountId, GuestId guestId){
+        appendChange(new GuestDeleted(accountId, guestId)).apply();
     }
 
     public void addHealthCare(HealthCareId healthCareId,
