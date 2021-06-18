@@ -1,6 +1,7 @@
 package org.example.domain.entryCard;
 
 import co.com.sofka.domain.generic.EventChange;
+import org.example.domain.entryCard.events.AssignedCottage;
 import org.example.domain.entryCard.events.CreatedEntryCard;
 
 public class OnChangeEntryCard extends EventChange {
@@ -10,6 +11,8 @@ public class OnChangeEntryCard extends EventChange {
             entryCard.accountId = event.getAccountId();
         });
 
-        ;
+        apply(((AssignedCottage event)->{
+            entryCard.cottageId = event.getCottageId();
+        }));
     }
 }

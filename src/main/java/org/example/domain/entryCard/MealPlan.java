@@ -1,6 +1,9 @@
-package org.example.domain.entryCard.values;
+package org.example.domain.entryCard;
 
 import co.com.sofka.domain.generic.Entity;
+import org.example.domain.entryCard.values.IsVegetarian;
+import org.example.domain.entryCard.values.MealPlanId;
+import org.example.domain.entryCard.values.QuantityPeople;
 
 public class MealPlan extends Entity<MealPlanId> {
 

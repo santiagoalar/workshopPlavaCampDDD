@@ -1,6 +1,9 @@
-package org.example.domain.entryCard.values;
+package org.example.domain.entryCard;
 
 import co.com.sofka.domain.generic.Entity;
+import org.example.domain.entryCard.values.Coordinates;
+import org.example.domain.entryCard.values.IsCovered;
+import org.example.domain.entryCard.values.ParkingSpotId;
 
 public class ParkingSpot extends Entity<ParkingSpotId> {
 

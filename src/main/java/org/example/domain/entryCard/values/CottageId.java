@@ -11,7 +11,7 @@ public class CottageId extends Identity {
         super(id);
     }
 
-    public CottageId of(String id){
+    public static CottageId of(String id){
         return new CottageId(id);
     }
 }

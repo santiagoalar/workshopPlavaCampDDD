@@ -1,7 +1,10 @@
-package org.example.domain.entryCard.values;
+package org.example.domain.entryCard;
 
 import co.com.sofka.domain.generic.Entity;
 import org.example.domain.account.values.BraceletId;
+import org.example.domain.entryCard.values.QuantityBathrooms;
+import org.example.domain.entryCard.values.QuantityBeds;
+import org.example.domain.entryCard.values.QuantityRooms;
 
 public class Cottage extends Entity<BraceletId> {
 

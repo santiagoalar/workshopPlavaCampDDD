@@ -1,9 +1,13 @@
 package org.example.domain.entryCard;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import org.example.domain.account.values.AccountId;
+import org.example.domain.entryCard.events.AssignedCottage;
 import org.example.domain.entryCard.events.CreatedEntryCard;
 import org.example.domain.entryCard.values.*;
+
+import java.util.List;
 
 public class EntryCard extends AggregateEvent<EntryCardId> {
 
@@ -17,6 +21,20 @@ public class EntryCard extends AggregateEvent<EntryCardId> {
     public EntryCard(EntryCardId entityId, AccountId accountId) {
         super(entityId);
         appendChange(new CreatedEntryCard(entityId, accountId)).apply();
+    }
 
+    private EntryCard(EntryCardId entryCardId){
+        super(entryCardId);
+        subscribe(new OnChangeEntryCard(this));
+    }
+
+    public static EntryCard from(EntryCardId entryCardId, List<DomainEvent> events){
+        var entryCard = new EntryCard(entryCardId);
+        events.forEach(entryCard::applyEvent);
+        return entryCard;
+    }
+
+    public void assignCottage(EntryCardId entryCardId, CottageId cottageId){
+        appendChange(new AssignedCottage(entryCardId, cottageId));
     }
 }
