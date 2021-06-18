@@ -39,4 +39,8 @@ public class CreatedAccount extends DomainEvent {
     public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
+
+    public AccountId getAccountId() {
+        return accountId;
+    }
 }
