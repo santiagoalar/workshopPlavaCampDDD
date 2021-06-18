@@ -13,7 +13,7 @@
 
 ![alt text](https://github.com/santiagoalar/workshopPlavaCampDDD/blob/main/Plava_punta_camp-Model.jpg?raw=true)
 
-## Use cases triggered by commands
+# Use cases triggered by commands
 - AddGuestUseCase.java
 - AssignAccountUseCase.java
 - AssignCottageUseCase.java
@@ -30,4 +30,3 @@
 ## Use cases triggered by events
 - NotifyEmailMessageUseCase.java
 - NotifyTextMessageUseCase.java
-
