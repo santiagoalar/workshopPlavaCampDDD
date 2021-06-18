@@ -45,7 +45,9 @@ class AddGuestUseCaseTest {
                 new BloodType("0+"));
 
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
-                new CreatedAccount(new Name("Ant"),
+                new CreatedAccount(
+                        accountId,
+                        new Name("Ant"),
                         new Age("32"),
                         new Email("ant@mail.com"), new PhoneNumber("3125669856")
                 )));
@@ -61,9 +63,13 @@ class AddGuestUseCaseTest {
 
         //Assert
         GuestAdded guestAdded = (GuestAdded) events.get(0);
+
+        //Assertions.assertEquals(1, guestAdded.getGuestFactory().guests().size());
         Assertions.assertEquals("123", guestAdded.getGuestId().value());
         Assertions.assertEquals("Tonio", guestAdded.getName().value());
         Assertions.assertEquals("23", guestAdded.getAge().value());
         Assertions.assertEquals("0+", guestAdded.getBloodType().value());
     }
+
+
 }

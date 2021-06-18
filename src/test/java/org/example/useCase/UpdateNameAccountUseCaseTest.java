@@ -48,7 +48,9 @@ class UpdateNameAccountUseCaseTest {
         UpdateName updateName = new UpdateName(accountId, name);
 
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
-                new CreatedAccount(new Name("Alberto"),
+                new CreatedAccount(
+                        accountId,
+                        new Name("Alberto"),
                         new Age("32"),
                         new Email("ant@mail.com"), new PhoneNumber("3125669856")
                 )));
