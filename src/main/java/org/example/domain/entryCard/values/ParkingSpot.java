@@ -21,7 +21,7 @@ public class ParkingSpot extends Entity<ParkingSpotId> {
     public void updateIsCovered(IsCovered isCovered) {
         this.isCovered = isCovered;
     }
-    
+
     public IsCovered getIsCovered() {
         return isCovered;
     }
